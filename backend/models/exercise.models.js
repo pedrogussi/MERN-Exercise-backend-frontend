@@ -1,19 +1,16 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+const Schema  = mongoose.Schema;
 
-const userSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        minlength: 3
-    }, 
-},{
-    timestamps:true
+const exerciseSchema = new Schema ({
+    username: {type:String, required:true},
+    description: {type:String, required:true},
+    duration: {type:Number, required:true},
+    date:{type:Date, required:true},
+}, {
+    timestamps:true,
 });
 
-const User = mongoose.model('User', userSchema);
+const Exercise = mongoose.model('Exercise', exerciseSchema);
 
-module.exports = User;
+export default Exercise;
